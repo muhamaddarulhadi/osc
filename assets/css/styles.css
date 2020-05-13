@@ -1,0 +1,20 @@
+.sticky {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  width: 100%;
+  left: 0;
+  z-index: 100;
+  border-top: 0;
+}
+
+#butang {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 4rem;
+  width: 100%;
+  left: 0;
+  z-index: 100;
+  border-top: 0;
+}
+
