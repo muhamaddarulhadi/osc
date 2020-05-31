@@ -1,7 +1,16 @@
 <?php
-    if(isset($_GET['email']) && $_GET['email'] !== '')
+
+    $pageRefreshed = isset($_SERVER['HTTP_CACHE_CONTROL']) && ($_SERVER['HTTP_CACHE_CONTROL'] === 'max-age=0' ||  $_SERVER['HTTP_CACHE_CONTROL'] == 'no-cache');  //check whether page is refresh or not
+
+    foreach($_GET as $loc=>$email)
+    $_GET[$loc] = base64_decode(urldecode($email));
+
+    if(isset($_GET[$loc]) && $_GET[$loc] !== '')
+
+    //if(isset($_GET['email']) && $_GET['email'] !== '')
     {
-        $email = $_GET['email'];
+        //$email = $_GET['email'];
+        $email =  $_GET[$loc];
 
         $servername = "localhost";
         $dbusername = "root";
@@ -16,18 +25,35 @@
         }
         else
         {
-            $staf = mysqli_query($con,"SELECT email, fullname FROM staf_register WHERE email = '".$_GET['email']."'") or die ("Failed to query database" .mysql_error());
-            $row = mysqli_fetch_array($staf);
-
-            if($row['email'] == $_GET['email'])
+            if($pageRefreshed == 1)
             {
-                $row['fullname'];
+                $staf = mysqli_query($con,"SELECT email, fullname FROM staf_register WHERE email = '".$_GET[$loc]."'") or die ("Failed to query database" .mysql_error());
+
+                //$staf = mysqli_query($con,"SELECT email, fullname FROM staf_register WHERE email = $email") or die ("Failed to query database" .mysqli_error());     YANG LAMA 
+                $row = mysqli_fetch_array($staf);
+
+                if($row['email'] == $_GET[$loc])
+
+                //if($row['email'] == $_GET['email'])     YANG LAMA
+                {
+                    $row['fullname'];
+                } 
+            }
+            else
+            {
+                $staf = mysqli_query($con,"SELECT email, fullname FROM staf_register WHERE email = '".$_GET[$loc]."'") or die ("Failed to query database" .mysql_error());
+                $row = mysqli_fetch_array($staf);
+    
+                if($row['email'] == $_GET[$loc])
+                {
+                    $row['fullname'];
+                }
             }
         }
     } 
     else
     {
-        header("location: /OSC/index.html");
+        header("location: /osc/index.html");
     }
 ?>
 
@@ -38,7 +64,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>one stop center</title>
+    <title>One Stop Centre</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
@@ -63,17 +89,17 @@
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
-<body>
+<body onload="noBack();" onpageshow="if (event.persisted) noBack();" onunload="">
     <div class="text-center" id="line" style="background-color: #2d0e6e ;padding-top: 4px;padding-bottom: 4px;width: auto;height: auto;color: rgb(215,215,215);"><span class="text-center text-sm-center text-md-center text-lg-center text-xl-center justify-content-center align-items-center align-content-center align-self-center flex-wrap" style="color: rgb(255,255,255);font-size: 20px;font-family: ABeeZee, sans-serif;font-style: normal;padding-right: 4px;padding-left: 4px;">One Stop Centre<br></span></div>
     <div
         id="wrapper">
         <div class="d-lg-flex" id="sidebar-wrapper" style="background-color: rgb(0,0,0);">
             <ul class="sidebar-nav">
-                <li class="sidebar-brand"> <a href="staff_menu.html?email=<?php echo $row['email'] ?>">MENU</a></li>
-                <li style="background-color: transparent;"> <a href="muat_naik_kertas_kerja.html?email=<?php echo $row['email'] ?>" style="color: rgb(153,153,153);">Muat naik kertas kerja<br></a></li>
-                <li style="background-color: transparent;"> <a href="borang_osc_1.html?email=<?php echo $row['email'] ?>" style="color: rgb(153,153,153);">Borang OSC/1</a></li>
-                <li> <a href="borang_osc_2.html?email=<?php echo $row['email'] ?>" style="background-color: #2d0e6e;color: rgb(255,255,255);">Borang OSC/2</a></li>
-                <li> <a href="muat_turun_borang.html?email=<?php echo $row['email'] ?>">Muat turun lain - lain borang</a></li>
+                <li class="sidebar-brand"> <a href="staff_menu.php?email=<?php echo urlencode(base64_encode($row['email'])) ?>">MENU</a></li>
+                <li style="background-color: transparent;"> <a href="muat_naik_kertas_kerja.php?email=<?php echo urlencode(base64_encode($row['email'])) ?>" style="color: rgb(153,153,153);">Muat naik kertas kerja<br></a></li>
+                <li style="background-color: transparent;"> <a href="borang_osc_1.php?email=<?php echo urlencode(base64_encode($row['email'])) ?>" style="color: rgb(153,153,153);">Borang OSC/1</a></li>
+                <li> <a href="borang_osc_2.php?email=<?php echo urlencode(base64_encode($row['email'])) ?>" style="background-color: #2d0e6e;color: rgb(255,255,255);">Borang OSC/2</a></li>
+                <li> <a href="muat_turun_borang.php?email=<?php echo urlencode(base64_encode($row['email'])) ?>">Muat turun lain - lain borang</a></li>
             </ul>
         </div>
         <div class="page-content-wrapper">
@@ -2323,7 +2349,7 @@
                     <section class="text-center" style="width: auto;margin-bottom: 80px;margin-top: 8px;padding-top: 13px;padding-bottom: 20px;">
                         <div style="width: auto;padding-top: 24px;"><button class="btn btn-primary" type="submit" style="margin-bottom: 5px;">Hantar<i class="fa fa-send" style="padding-left: 9px;"></i></button><button class="btn btn-primary" type="reset" style="margin-left: 10px;margin-bottom: 5px;">Kosongkan semua<i class="material-icons" style="font-size: 14px;padding-left: 9px;">clear</i></button>
                             <a
-                                class="btn btn-primary" role="button" style="margin-left: 10px;margin-bottom: 5px;" href="Bantuan_staff.html?email=<?php echo $row['email'] ?>">Bantuan<i class="icon ion-help" style="margin-left: 9px;"></i></a><button class="btn btn-primary" type="submit" style="margin-left: 10px;margin-bottom: 5px;">Simpan<i class="fas fa-save" style="margin-left: 9px;"></i></button>
+                                class="btn btn-primary" role="button" style="margin-left: 10px;margin-bottom: 5px;" href="bantuan_staff.php?email=<?php echo urlencode(base64_encode($row['email'])) ?>">Bantuan<i class="icon ion-help" style="margin-left: 9px;"></i></a><button class="btn btn-primary" type="submit" style="margin-left: 10px;margin-bottom: 5px;">Simpan<i class="fas fa-save" style="margin-left: 9px;"></i></button>
                                 <button
                                     class="btn btn-primary" type="button" style="margin-left: 10px;margin-bottom: 5px;">Cetak<i class="fa fa-print" style="margin-left: 9px;"></i></button>
                         </div>
@@ -2341,6 +2367,14 @@
         <script src="assets/js/hide.js"></script>
         <script src="assets/js/Sidebar-Menu.js"></script>
         <script src="assets/js/sticky.js"></script>
+        <script type="text/javascript">
+                window.history.forward();
+                function noBack() 
+                { 
+                    window.history.forward(); 
+                    alert
+                }
+        </script>
 </body>
 
 </html>

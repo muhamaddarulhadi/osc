@@ -1,5 +1,7 @@
 <?php
 
+if ($_SERVER['HTTP_REFERER'] == 'http://localhost/osc/index.html') //cek sama ada dia running dari link yang mana, kalau bukan dari link ni, dia akan p ke default link
+{
     $email = $_POST["email"];
     $password = $_POST["password"];
     $user = $_POST["user"];
@@ -37,7 +39,9 @@
 
                 if($row['email'] == $email && $row['password'] == $password)
                 {
-                    header("location: /OSC/staff_menu.html?email='".$row['email']."'");
+                    //header("location: /osc/staff_menu.html?email='".$row['email']."'");    //YANG LAMA
+
+                    header("location: /osc/staff_menu.php?email=".urlencode(base64_encode($row['email'])));
                 }
                 else
                 {
@@ -58,7 +62,9 @@
 
                 if($row['email'] == $email && $row['password'] == $password)
                 {
-                    header("location: /OSC/osc_staff_menu.html?email='".$row['email']."'");
+                    //header("location: /osc/osc_staff_menu.html?email='".$row['email']."'");    //YANG LAMA
+
+                    header("location: /osc/osc_staff_menu.php?email=".urlencode(base64_encode($row['email'])));
                 }
                 else
                 {
@@ -79,7 +85,9 @@
 
                 if($row['email'] == $email && $row['password'] == $password)
                 {
-                    header("location: /OSC/tnc_menu.html?email='".$row['email']."'");
+                    //header("location: /osc/tnc_menu.html?email='".$row['email']."'");    //YANG LAMA
+
+                    header("location: /osc/tnc_menu.php?email=".urlencode(base64_encode($row['email'])));
                 }
                 else
                 {
@@ -95,4 +103,10 @@
             }
         }
     }
+}
+else
+{
+    header("location: /osc/index.html");
+}
+
 ?>

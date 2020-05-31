@@ -1,7 +1,16 @@
 <?php
-    if(isset($_GET['email']) && $_GET['email'] !== '')
+
+    $pageRefreshed = isset($_SERVER['HTTP_CACHE_CONTROL']) && ($_SERVER['HTTP_CACHE_CONTROL'] === 'max-age=0' ||  $_SERVER['HTTP_CACHE_CONTROL'] == 'no-cache');  //check whether page is refresh or not
+
+    foreach($_GET as $loc=>$email)
+    $_GET[$loc] = base64_decode(urldecode($email));
+
+    if(isset($_GET[$loc]) && $_GET[$loc] !== '')
+
+    //if(isset($_GET['email']) && $_GET['email'] !== '')  //YANG LAMA
     {
-        $email = $_GET['email'];
+        //$email = $_GET['email'];
+        $email =  $_GET[$loc];
 
         $servername = "localhost";
         $dbusername = "root";
@@ -16,18 +25,35 @@
         }
         else
         {
-            $staf = mysqli_query($con,"SELECT email, fullname FROM staf_register WHERE email = '".$_GET['email']."'") or die ("Failed to query database" .mysql_error());
-            $row = mysqli_fetch_array($staf);
-
-            if($row['email'] == $_GET['email'])
+            if($pageRefreshed == 1)
             {
-                $row['fullname'];
+                $staf = mysqli_query($con,"SELECT email, fullname FROM staf_register WHERE email = '".$_GET[$loc]."'") or die ("Failed to query database" .mysql_error());
+
+                //$staf = mysqli_query($con,"SELECT email, fullname FROM staf_register WHERE email = $email") or die ("Failed to query database" .mysqli_error());     YANG LAMA 
+                $row = mysqli_fetch_array($staf);
+
+                if($row['email'] == $_GET[$loc])
+
+                //if($row['email'] == $_GET['email'])     YANG LAMA
+                {
+                    $row['fullname'];
+                } 
+            }
+            else
+            {
+                $staf = mysqli_query($con,"SELECT email, fullname FROM staf_register WHERE email = '".$_GET[$loc]."'") or die ("Failed to query database" .mysql_error());
+                $row = mysqli_fetch_array($staf);
+    
+                if($row['email'] == $_GET[$loc])
+                {
+                    $row['fullname'];
+                }
             }
         }
     } 
     else
     {
-        header("location: /OSC/index.html");
+        header("location: /osc/index.html");
     }
 ?>
 
@@ -38,7 +64,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>one stop center</title>
+    <title>One Stop Centre</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
@@ -88,8 +114,8 @@
         </div>
         <div class="row no-gutters text-center d-xl-flex justify-content-center align-items-center align-content-center justify-content-xl-center" style="margin-top: 46px;width: auto;">
             <div class="col d-xl-flex justify-content-xl-center">
-                <div style="width: auto;"><a class="btn btn-primary" role="button" href="muat_naik_kertas_kerja.html?email=<?php echo $row['email'] ?>" style="margin-bottom: 5px;">Masukkan data pemohonan anda<i class="fa fa-file-text" style="margin-left: 9px;"></i></a><a class="btn btn-primary" role="button"
-                        style="margin-left: 37px;margin-bottom: 5px;" href="index.html">Log Keluar&nbsp;<i class="icon-logout" style="margin-left: 9px;"></i></a><a class="btn btn-primary" role="button" style="margin-left: 37px;margin-bottom: 5px;" href="staff_menu.html?email=<?php echo $row['email'] ?>">Menu<i class="icon-menu" style="height: auto;margin-left: 9px;font-size: 16px;"></i></a></div>
+                <div style="width: auto;"><a class="btn btn-primary" role="button" href="muat_naik_kertas_kerja.php?email=<?php echo urlencode(base64_encode($row['email'])) ?>" style="margin-bottom: 5px;">Masukkan data pemohonan anda<i class="fa fa-file-text" style="margin-left: 9px;"></i></a><a class="btn btn-primary" role="button"
+                        style="margin-left: 37px;margin-bottom: 5px;" href="index.html">Log Keluar&nbsp;<i class="icon-logout" style="margin-left: 9px;"></i></a><a class="btn btn-primary" role="button" style="margin-left: 37px;margin-bottom: 5px;" href="staff_menu.php?email=<?php echo urlencode(base64_encode($row['email'])) ?>">Menu<i class="icon-menu" style="height: auto;margin-left: 9px;font-size: 16px;"></i></a></div>
             </div>
         </div>
         </section>

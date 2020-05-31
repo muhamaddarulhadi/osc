@@ -1,5 +1,7 @@
 <?php
 
+if ($_SERVER['HTTP_REFERER'] == 'http://localhost/osc/register.php') //cek sama ada dia running dari link yang mana, kalau bukan dari link ni, dia akan p ke default link
+{
     $email = $_POST['email'];    
     $fullname = $_POST['fullname'];   
     $staffid = $_POST['staffid'];
@@ -11,7 +13,7 @@
             <script type="text/javascript">
                 alert("All field are required"); 
                 history.go(-1);  
-                window.location.href="Register.html";  
+                window.location.href="register.php";  
             </script>
         <?php  
 
@@ -52,7 +54,7 @@
                 <script type="text/javascript">
                     alert("Success to register"); 
                     history.go(-1);  
-                    window.location.href="Register.html";  
+                    window.location.href="register.php";  
                 </script>
                 <?php
             } 
@@ -62,7 +64,7 @@
                 <script type="text/javascript">
                     alert("Someone already register using this Staff ID"); 
                     history.go(-1);
-                    window.location.href="Register.html";
+                    window.location.href="register.php";
                 </script>
                 <?php 
             }
@@ -70,4 +72,10 @@
             $con->close();
         }
     }
+}
+else
+{
+    header("location: /osc/index.html");
+}
+
 ?>

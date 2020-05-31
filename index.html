@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>one stop center</title>
+    <title>One Stop Centre</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
@@ -29,12 +29,12 @@
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
-<body style="background-color: rgb(241,241,241) ; color: #aaa;">
+<body style="background-color: rgb(241,241,241) ; color: #aaa;" onload="noBack();" onpageshow="if (event.persisted) noBack();" onunload="">
     <div class="text-center" id="line" style="background-color: #2d0e6e ;padding-top: 4px;padding-bottom: 4px;width: auto;height: auto;color: rgb(215,215,215);"><span class="text-center text-sm-center text-md-center text-lg-center text-xl-center justify-content-center align-items-center align-content-center align-self-center flex-wrap" style="color: rgb(255,255,255);font-size: 20px;font-family: ABeeZee, sans-serif;font-style: normal;padding-right: 4px;padding-left: 4px;">One Stop Centre<br></span></div>
     <div
-        class="login-card" style="background-color: #ffffff;max-width: 352px;height: auto;margin-top: 75px;width: auto;max-height: 424px;margin-bottom: 61px;">
+        class="login-card" style="background-color: #ffffff;max-width: 352px;height: auto;margin-top: 75px;width: auto;max-height: 460px;margin-bottom: 61px;">
         <p class="profile-name-card" style="color: #000000;font-size: 30px;margin-bottom: 21px;margin-top: -3px;">Log Masuk</p>
-        <form method="POST" action="/OSC/php/login.php" class="form-signin"><span class="reauth-email"> </span><input class="form-control" name="email" type="email" id="inputEmail" required="" placeholder="E-Mel" autofocus="" autocomplete="off" style="font-size: 14px;line-height: 18px;">
+        <form method="POST" action="/osc/php/login.php" class="form-signin"><span class="reauth-email"> </span><input class="form-control" name="email" type="email" id="inputEmail" required="" placeholder="E-Mel" autofocus="" autocomplete="off" style="font-size: 14px;line-height: 18px;">
             <div class="input-container" style="align-items: center; display: flex; border: 1px solid #dadee3; border-radius: 3px; margin-top: 18px;"><input class="form-control" name="password" type="password" id="inputPassword" required="" placeholder="Kata Laluan" autocomplete="off" style="padding-top: 6px;padding-right: 12px;padding-bottom: 6px;padding-left: 12px;margin-bottom: 0px; border: none; outline: none; font-size: 14px; color: #333;">
                 <i
                     class="material-icons visibility" style="padding-right: 8px;cursor: pointer;padding-left: 8px;">visibility_off</i>
@@ -52,17 +52,17 @@
   <br>
   <div class="form-row">
     <div class="col"><button class="btn btn-primary btn-block btn-signin" type="submit" value="Log Masuk" style="background-color: rgb(0,123,255);border-radius: 10px;">Log Masuk</button></div>
-    <div class="col"><a class="btn btn-primary btn-block btn-signin" role="button" href="/OSC/Register.html" style="background-color: rgb(0,123,255);border-radius: 10px;">Daftar</a></div>
+    <div class="col"><a class="btn btn-primary btn-block btn-signin" role="button" href="/osc/register.php" style="background-color: rgb(0,123,255);border-radius: 10px;">Daftar</a></div>
 </div>
 </form></div>
             </div>
           
         </form>
-        <div class="row no-gutters text-center" style="margin-top: 19px;">
-            <div class="col text-center" style="padding-right: 5px;padding-left: 5px;"><a class="forgot-password" href="#" style="color: rgb(0,0,0);margin-top: 9px;font-size: 14px;">Terlupa kata laluan anda?</a></div>
+        <div class="row no-gutters text-center" style="margin-top: 19px; margin-bottom: 19px;">
+            <div class="col text-center" style="padding-bottom: 5px; padding-right: 5px;padding-left: 5px;"><a class="forgot-password" href="#" style="color: rgb(0,0,0);margin-top: 9px;font-size: 14px;">Terlupa kata laluan anda?</a></div>
         </div>
         </div>
-        <div class="text-center invisible container-fluid" style="background-color: #ffffff;padding-top: 7px;padding-bottom: 7px;height: auto;color: rgb(215,215,215);margin-right: 170px;margin-left: 170px;width: auto;margin-bottom: 41px;"><span class="text-center text-sm-center text-md-center text-lg-center text-xl-center justify-content-center align-items-center align-content-center align-self-center flex-wrap" style="color: rgb(0,0,0);font-size: 14px;font-family: ABeeZee, sans-serif;font-style: normal;padding-right: 4px;padding-left: 4px;">Laman sesawang ini hanyalah untuk mempermudahkan anda untuk mengisi borang OSC 1 / OSC 2. <br>Pemohonan masih perlu dibuat secara manual<br></span></div>
+        <!-- <div class="text-center container-fluid" style="background-color: #ffffff;padding-top: 7px;padding-bottom: 7px;height: auto;color: rgb(215,215,215);margin-right: 170px;margin-left: 170px;width: auto;margin-bottom: 41px;"><span class="text-center text-sm-center text-md-center text-lg-center text-xl-center justify-content-center align-items-center align-content-center align-self-center flex-wrap" style="color: rgb(0,0,0);font-size: 14px;font-family: ABeeZee, sans-serif;font-style: normal;padding-right: 4px;padding-left: 4px;">Laman sesawang ini hanyalah untuk mempermudahkan anda untuk mengisi borang OSC 1 / OSC 2. <br>Pemohonan masih perlu dibuat secara manual<br></span></div> -->
         <script
             src="assets/js/jquery.min.js"></script>
             <script src="assets/bootstrap/js/bootstrap.min.js"></script>
@@ -72,6 +72,13 @@
             <script src="assets/js/hide.js"></script>
             <script src="assets/js/Sidebar-Menu.js"></script>
             <script src="assets/js/sticky.js"></script>
+            <script type="text/javascript">
+                window.history.forward();
+                function noBack() 
+                { 
+                    window.history.forward(); 
+                }
+            </script>
 </body>
 
 </html>

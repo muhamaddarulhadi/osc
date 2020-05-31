@@ -66,7 +66,7 @@
     } 
     else
     {
-        header("location: /OSC/borang_osc_1.html");
+        header("location: /osc/borang_osc_1.html");
     }
 
 
