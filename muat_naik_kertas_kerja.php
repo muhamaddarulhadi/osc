@@ -1,5 +1,4 @@
 <?php
-
     $pageRefreshed = isset($_SERVER['HTTP_CACHE_CONTROL']) && ($_SERVER['HTTP_CACHE_CONTROL'] === 'max-age=0' ||  $_SERVER['HTTP_CACHE_CONTROL'] == 'no-cache');  //check whether page is refresh or not
 
     foreach($_GET as $loc=>$email)
@@ -107,7 +106,6 @@
 
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -135,8 +133,7 @@
     <link rel="stylesheet" href="assets/css/Sidebar-Menu.css">
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-
-<body onload="noBack();" onpageshow="if (event.persisted) noBack();" onunload="">
+<body>
     <div class="text-center" id="line" style="background-color: #2d0e6e ;padding-top: 4px;padding-bottom: 4px;width: auto;height: auto;color: rgb(215,215,215);"><span class="text-center text-sm-center text-md-center text-lg-center text-xl-center justify-content-center align-items-center align-content-center align-self-center flex-wrap" style="color: rgb(255,255,255);font-size: 20px;font-family: ABeeZee, sans-serif;font-style: normal;padding-right: 4px;padding-left: 4px;">One Stop Centre<br></span></div>
     <div
         id="wrapper">
@@ -196,7 +193,6 @@
         <script src="assets/js/hide.js"></script>
         <script src="assets/js/Sidebar-Menu.js"></script>
         <script src="assets/js/sticky.js"></script>
-
         <style name="button choose file">
             .inputfile:focus + label 
             {
@@ -204,13 +200,5 @@
                 outline: -webkit-focus-ring-color auto 5px;
             }
         </style>
-        <script type="text/javascript">
-                window.history.forward();
-                function noBack() 
-                { 
-                    window.history.forward(); 
-                }
-        </script>
 </body>
-
 </html>

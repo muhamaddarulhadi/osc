@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -28,8 +27,7 @@
     <link rel="stylesheet" href="assets/css/Sidebar-Menu.css">
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-
-<body style="background-color: rgb(241,241,241);" onload="noBack();" onpageshow="if (event.persisted) noBack();" onunload="">
+<body style="background-color: rgb(241,241,241);">
     <div class="text-center" id="line" style="background-color: #2d0e6e;padding-top: 4px;padding-bottom: 4px;width: auto;height: auto;color: rgb(215,215,215);"><span class="text-center text-sm-center text-md-center text-lg-center text-xl-center justify-content-center align-items-center align-content-center align-self-center flex-wrap" style="color: rgb(255,255,255);font-size: 20px;font-family: ABeeZee, sans-serif;font-style: normal;padding-right: 4px;padding-left: 4px;">One Stop Centre<br></span></div>
     <div
         class="login-card" style="background-color: #ffffff;width: auto;max-width: 513px;margin-bottom: 60px;margin-top: 75px;max-height: 596.612px;height: auto;">
@@ -58,13 +56,5 @@
         <script src="assets/js/hide.js"></script>
         <script src="assets/js/Sidebar-Menu.js"></script>
         <script src="assets/js/sticky.js"></script>
-        <script type="text/javascript">
-                window.history.forward();
-                function noBack() 
-                {
-                    window.history.forward();        
-                }
-        </script>
 </body>
-
 </html>
