@@ -93,9 +93,10 @@
         <div class="d-lg-flex" id="sidebar-wrapper" style="background-color: rgb(0,0,0);">
             <ul class="sidebar-nav">
                 <li class="sidebar-brand"> <a href="staff_menu.php?email=<?php echo urlencode(base64_encode($row['email'])) ?>">MENU</a></li>
-                <li style="background-color: transparent;"> <a href="muat_naik_kertas_kerja.php?email=<?php echo urlencode(base64_encode($row['email'])) ?>" style="color: rgb(153,153,153);">Muat naik kertas kerja<br></a></li>
+                <li style="background-color: transparent;"> <a href="muat_naik_kertas_kerja.php?email=<?php echo urlencode(base64_encode($row['email'])) ?>" style="color: rgb(153,153,153);">Muat naik kertas kerja & Lampiran D<br></a></li>
                 <li style="background-color: #2d0e6e;"> <a href="borang_osc_1.php?email=<?php echo urlencode(base64_encode($row['email'])) ?>" style="color: rgb(255,255,255);">Borang OSC/1</a></li>
                 <li> <a href="borang_osc_2.php?email=<?php echo urlencode(base64_encode($row['email'])) ?>">Borang OSC/2</a></li>
+                <li> <a href="borang_wujud_kod_program.php?email=<?php echo urlencode(base64_encode($row['email'])) ?>">Borang wujud kod program</a></li>
                 <li> <a href="muat_turun_borang.php?email=<?php echo urlencode(base64_encode($row['email'])) ?>">Muat turun lain - lain borang</a></li>
             </ul>
         </div>

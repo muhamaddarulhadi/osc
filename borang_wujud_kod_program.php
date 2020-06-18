@@ -140,17 +140,17 @@
         <div id="sidebar-wrapper" style="background-color: rgb(0,0,0);">
             <ul class="sidebar-nav">
                 <li class="sidebar-brand"> <a href="staff_menu.php?email=<?php echo urlencode(base64_encode($row['email'])) ?>">MENU</a></li>
-                <li style="background-color: #2d0e6e;"> <a href="muat_naik_kertas_kerja.php?email=<?php echo urlencode(base64_encode($row['email'])) ?>" style="color: rgb(255,255,255);">Muat naik kertas kerja & Lampiran D<br></a></li>
+                <li> <a href="muat_naik_kertas_kerja.php?email=<?php echo urlencode(base64_encode($row['email'])) ?>" >Muat naik kertas kerja & Lampiran D<br></a></li>
                 <li> <a href="borang_osc_1.php?email=<?php echo urlencode(base64_encode($row['email'])) ?>">Borang OSC/1</a></li>
                 <li> <a href="borang_osc_2.php?email=<?php echo urlencode(base64_encode($row['email'])) ?>">Borang OSC/2</a></li>
-                <li> <a href="borang_wujud_kod_program.php?email=<?php echo urlencode(base64_encode($row['email'])) ?>">Borang wujud kod program</a></li>
+                <li style="background-color: #2d0e6e;"> <a href="borang_wujud_kod_program.php?email=<?php echo urlencode(base64_encode($row['email'])) ?>" style="color: rgb(255,255,255);">Borang wujud kod program</a></li>
                 <li> <a href="muat_turun_borang.php?email=<?php echo urlencode(base64_encode($row['email'])) ?>">Muat turun lain - lain borang</a></li>
             </ul>
         </div>
         <div class="page-content-wrapper">
             <div class="container-fluid" id="butang"><a class="btn btn-link" role="button" id="menu-toggle" href="#menu-toggle"><i class="fa fa-bars"></i></a></div>
             <div class="container" style="max-width: auto;min-width: auto;width: auto;">
-                <section style="width: auto;max-width: auto;min-width: auto;">
+                <!--    <section style="width: auto;max-width: auto;min-width: auto;">
                     <div style="width: auto;max-width: auto;min-width: auto;">
                         <div class="row padMar mx-auto col-sm-9 col-md-7 col-lg-5 col-xl-6 colorCajasBlancas margenesCajas" style="padding-top: 65px;width: auto;max-width: auto;min-width: auto;">
                             <div class="col margenesCajas" style="max-width: auto;width: auto;">
@@ -158,6 +158,12 @@
                                     <div class="col-12 col-sm-10 col-md-10 col-lg-12 col-xl-9 d-flex flex-wrap padMar mx-auto">
                                         <h4 class="padMar" style="width: auto;max-width: auto;">Muat naik kertas kerja&nbsp;</h4>
                                     </div>
+                                    <div class="col-12 col-sm-10 col-md-10 col-lg-12 col-xl-9 d-flex flex-wrap padMar mx-auto">
+                                        <p class="margenesTxts" style="width: auto;max-width: auto;">*Yang diluluskan oleh ketua jabatan sahaja</p>
+                                    </div>
+                                    <div class="col-12 col-sm-10 col-md-10 col-lg-12 col-xl-9 d-flex flex-wrap padMar mx-auto">
+                                        <p class="margenesTxts" style="width: auto;max-width: auto;">Muat naik dokumen dalam berformat pdf sahaja</p>
+                                    </div>
                                     <div class="col-12 col-sm-10 col-md-10 col-lg-12 col-xl-9 d-flex flex-wrap padMar mx-auto" style="width: auto;max-width: auto;">
                                         <form action="#" method="POST" enctype="multipart/form-data">
                                             <input type="file" name="pdfFile">
@@ -167,60 +173,16 @@
                                         <!--<button class="btn btn-primary btn-Oscuro" type="button" style="padding-right: 19px;margin-top: 5px;">Pilih Dokumen</button><input type="text" readonly="" style="margin-left: 5px;margin-top: 5px;">
                                         
                                         <button class="btn btn-primary btn-Oscuro"
-                                            type="button" style="margin-left: 5px;margin-top: 5px;">Muat Naik</button>--></div>
-                                    <div class="col-12 col-sm-10 col-md-10 col-lg-12 col-xl-9 d-flex flex-wrap padMar mx-auto" style="padding-top: 14px;width: auto;max-width: auto;">
-                                        <p class="margenesTxts" style="color:black; width: auto;max-width: auto;margin-right: 7px;">Status:&nbsp;</p>
+                                            type="button" style="margin-left: 5px;margin-top: 5px;">Muat Naik</button>--> <!--</div>   -->
+                               <!--     <div class="col-12 col-sm-10 col-md-10 col-lg-12 col-xl-9 d-flex flex-wrap padMar mx-auto" style="padding-top: 14px;width: auto;max-width: auto;">
+                                        <p class="margenesTxts" style="width: auto;max-width: auto;margin-right: 7px;">Status:&nbsp;</p>
                                         <p></p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </section>
-                <section style="width: auto;max-width: auto;min-width: auto;">
-                    <div style="width: auto;max-width: auto;min-width: auto;">
-                        <div class="row padMar mx-auto col-sm-9 col-md-7 col-lg-5 col-xl-6 colorCajasBlancas margenesCajas" style="padding-top: 65px;width: auto;max-width: auto;min-width: auto;">
-                            <div class="col margenesCajas" style="max-width: auto;width: auto;">
-                                <div class="row" style="width: auto;max-width: auto;min-width: auto;">
-                                    <div class="col-12 col-sm-10 col-md-10 col-lg-12 col-xl-9 d-flex flex-wrap padMar mx-auto">
-                                        <h4 class="padMar" style="width: auto;max-width: auto;">Muat naik lampiran D&nbsp;</h4>
-                                    </div>
-                                  
-                                    <div class="col-12 col-sm-10 col-md-10 col-lg-12 col-xl-9 d-flex flex-wrap padMar mx-auto" style="width: auto;max-width: auto;">
-                                        <form action="#" method="POST" enctype="multipart/form-data">
-                                            <input type="file" name="pdfFile">
-                                            <input type="submit" name="upload" value="Muat Naik" class="btn btn-primary btn-Oscuro" style="margin-top: 13px">
-                                          </form>
-                                    
-                                        <!--<button class="btn btn-primary btn-Oscuro" type="button" style="padding-right: 19px;margin-top: 5px;">Pilih Dokumen</button><input type="text" readonly="" style="margin-left: 5px;margin-top: 5px;">
-                                        
-                                        <button class="btn btn-primary btn-Oscuro"
-                                            type="button" style="margin-left: 5px;margin-top: 5px;">Muat Naik</button>--></div>
-                                    <div class="col-12 col-sm-10 col-md-10 col-lg-12 col-xl-9 d-flex flex-wrap padMar mx-auto" style="padding-top: 14px;width: auto;max-width: auto;">
-                                        <p class="margenesTxts" style="color:black; width: auto;max-width: auto;margin-right: 7px;">Status:&nbsp;</p>
-                                        <p></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section style="width: auto;max-width: auto;min-width: auto;">
-                    <div style="width: auto;max-width: auto;min-width: auto;">
-                        <div class="row padMar mx-auto col-sm-9 col-md-7 col-lg-5 col-xl-6 colorCajasBlancas margenesCajas" style="padding-top: 65px;width: auto;max-width: auto;min-width: auto;">
-                            <div class="col margenesCajas" style="max-width: auto;width: auto;">
-                                <div class="row" style="width: auto;max-width: auto;min-width: auto;">
-                                    <div class="col-12 col-sm-10 col-md-10 col-lg-12 col-xl-9 d-flex flex-wrap padMar mx-auto">
-                                        <p class="margenesTxts" style="color:black; width: auto;max-width: auto;">*Yang diluluskan oleh ketua jabatan sahaja</p>
-                                    </div>
-                                    <div class="col-12 col-sm-10 col-md-10 col-lg-12 col-xl-9 d-flex flex-wrap padMar mx-auto">
-                                        <p class="margenesTxts" style="color:black; width: auto;max-width: auto;">*Muat naik dokumen dalam berformat pdf sahaja</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                </section>    -->
             </div>
         </div>
         </div>

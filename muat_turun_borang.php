@@ -102,9 +102,10 @@
         <div class="d-lg-flex" id="sidebar-wrapper" style="background-color: rgb(0,0,0);">
             <ul class="sidebar-nav">
                 <li class="sidebar-brand"> <a href="staff_menu.php?email=<?php echo urlencode(base64_encode($row['email'])) ?>">MENU</a></li>
-                <li style="background-color: transparent;"> <a href="muat_naik_kertas_kerja.php?email=<?php echo urlencode(base64_encode($row['email'])) ?>" style="color: rgb(153,153,153);">Muat naik kertas kerja<br></a></li>
+                <li style="background-color: transparent;"> <a href="muat_naik_kertas_kerja.php?email=<?php echo urlencode(base64_encode($row['email'])) ?>" style="color: rgb(153,153,153);">Muat naik kertas kerja & Lampiran D<br></a></li>
                 <li style="background-color: transparent;"> <a href="borang_osc_1.php?email=<?php echo urlencode(base64_encode($row['email'])) ?>" style="color: rgb(153,153,153);">Borang OSC/1</a></li>
                 <li> <a href="borang_osc_2.php?email=<?php echo urlencode(base64_encode($row['email'])) ?>">Borang OSC/2</a></li>
+                <li> <a href="borang_wujud_kod_program.php?email=<?php echo urlencode(base64_encode($row['email'])) ?>">Borang wujud kod program</a></li>
                 <li style="background-color: #2d0e6e;"> <a href="muat_turun_borang.php?email=<?php echo urlencode(base64_encode($row['email'])) ?>" style="color: rgb(255,255,255);">Muat turun lain - lain borang</a></li>
             </ul>
         </div>
@@ -115,20 +116,23 @@
                     <div class="row" style="width: auto;">
                         <div class="col"><input class="form-control-plaintext" type="text" value="BERIKUT MERUPAKAN SENARAI DOKUMEN YANG BOLEH DI MUAT TURUN" readonly="" style="margin-top: 20px;font-weight: bold;"></div>
                     </div>
-                    <div class="row" style="width: auto;padding-top: 22px;">
-                        <div class="col"><a href="/osc/assets/dokumen/Borang_UniMAP_OSC1_(Borang_maklumat_aktiviti_penjanaan_kewangan).docx" download>1. Borang OSC 1</a></div>
+                    <div class="row" style="padding-top: 22px;">
+                        <div class="col"><a href="/osc/assets/dokumen/Carta_Alir_OSC_(1).docx" download>1. Carta alir OSC</a></div>
+                    </div>
+                    <div class="row" style="width: auto;padding-top: 15px;">
+                        <div class="col"><a href="/osc/assets/dokumen/Borang_UniMAP_OSC1_(Borang_maklumat_aktiviti_penjanaan_kewangan).docx" download>2. Borang OSC 1</a></div>
                     </div>
                     <div class="row" style="padding-top: 15px;">
-                        <div class="col"><a href="/osc/assets/dokumen/BORANG_OSC_2.xlsx" download>2. Borang OSC 2</a></div>
-                    </div>
-                    <div class="row" style="padding-top: 15px;">
-                        <div class="col"><a href="/osc/assets/dokumen/Carta_Alir_OSC_(1).docx" download>3. Carta alir OSC</a></div>
+                        <div class="col"><a href="/osc/assets/dokumen/BORANG_OSC_2.xlsx" download>3. Borang OSC 2</a></div>
                     </div>
                     <div class="row" style="padding-top: 15px;">
                         <div class="col"><a href="/osc/assets/dokumen/BORANG_PERMOHONAN_WUJUD_KOD_UNTUK_PROGRAM_17-11-2016_(3).docx" download>4. Borang Permohonan Wujud Kod Untuk Program</a></div>
                     </div>
                     <div class="row" style="padding-top: 15px;">
                         <div class="col"><a href="/osc/assets/dokumen/BORANG_PENUTUPAN_PROGRAM.doc" download>5. Borang Penutupan Program</a></div>
+                    </div>
+                    <div class="row" style="padding-top: 15px;">
+                        <div class="col"><a href="/osc/assets/dokumen/Lampiran_D_Penurunan_Kuasa_Juruwang_dan_Penyelia_Kutipan_(Pindaan 052019).doc" download>6. Lampiran D</a></div>
                     </div>
                     <section class="text-left" style="width: auto;margin-bottom: 80px;margin-top: 8px;padding-top: 69px;">
                         <div style="width: auto;"><a class="btn btn-primary" role="button" style="margin-left: 10px;margin-bottom: 5px;" href="bantuan_staff.php?email=<?php echo urlencode(base64_encode($row['email'])) ?>">Bantuan<i class="icon ion-help" style="margin-left: 9px;"></i></a></div>
